@@ -6,7 +6,7 @@
 
 #include <gmpxx.h>
 
-class RSA_Algorithm 
+class RSA_Algorithm
 {
 public:
   // Default Constructor
@@ -18,10 +18,10 @@ public:
   // Encrypt plaintext message M with key  pair n/e
   // By convention, we will make the encryption key e the public key
   // and the decryption key d the private key.
-  mpz_class Encrypt(mpz_class M);
+  mpz_class Encrypt(const mpz_class& M);
 
   // Decrypt ciphertext message C with key pair n/d
-  mpz_class Decrypt(mpz_class C);
+  mpz_class Decrypt(const mpz_class& C);
 
   // Debug printing
   // Print n and d
@@ -34,10 +34,10 @@ public:
   void PrintNDE();
 
   // Print plaintext message
-  void PrintM(mpz_class M);
+  void PrintM(const mpz_class& M);
 
   // Print Ciphertext message
-  void PrintC(mpz_class C);
+  void PrintC(const mpz_class& C);
 
 public:
   // Member variables
