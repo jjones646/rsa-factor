@@ -1,0 +1,815 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"hos",
+				"host_interface_ip"
+			],
+			[
+				"sour",
+				"source_ip"
+			],
+			[
+				"iph_",
+				"iph_length"
+			],
+			[
+				"live",
+				"liveview_log"
+			],
+			[
+				"motionL",
+				"motionLevel_log"
+			],
+			[
+				"avg",
+				"avg_delta_ts"
+			],
+			[
+				"last",
+				"last_motion_ts_logged"
+			],
+			[
+				"moving",
+				"moving_average_array"
+			],
+			[
+				"movin",
+				"moving_average_array"
+			],
+			[
+				"motion",
+				"motionCounter"
+			],
+			[
+				"mot",
+				"motionLevel"
+			],
+			[
+				"livevi",
+				"liveview_dir"
+			],
+			[
+				"li",
+				"liveview_log"
+			],
+			[
+				"camera",
+				"camera_warmup_time"
+			],
+			[
+				"cpu_",
+				"cpu_num_complex"
+			],
+			[
+				"take",
+				"take_inverse"
+			],
+			[
+				"cpu_num",
+				"cpu_num_cols"
+			],
+			[
+				"compu",
+				"compute_run"
+			],
+			[
+				"cpu_nu",
+				"cpu_num_complex"
+			],
+			[
+				"cpu_star",
+				"cpu_start_row"
+			],
+			[
+				"row",
+				"row_offset"
+			],
+			[
+				"cpu_start",
+				"cpu_start_row"
+			],
+			[
+				"cpu",
+				"cpu_num_rows"
+			],
+			[
+				"rec",
+				"rec_from_rank"
+			],
+			[
+				"rank",
+				"rank_to_send"
+			],
+			[
+				"rows",
+				"rows_per_cpu"
+			],
+			[
+				"payl",
+				"payload"
+			],
+			[
+				"RJ_FPGA",
+				"RJ_FPGA_INIT_B"
+			],
+			[
+				"dest",
+				"destination"
+			],
+			[
+				"CMAKE_CURR",
+				"CMAKE_CURRENT_SOURCE_DIR"
+			],
+			[
+				"num",
+				"numPts"
+			],
+			[
+				"ana",
+				"analog_out_data"
+			],
+			[
+				"con",
+				"configFail"
+			],
+			[
+				"fi",
+				"filesize"
+			],
+			[
+				"start",
+				"startIndex"
+			],
+			[
+				"wait",
+				"waitForResult"
+			],
+			[
+				"M",
+				"MBED_DEVICES_PATH"
+			],
+			[
+				"des",
+				"destPath"
+			],
+			[
+				"fou",
+				"found_ports"
+			],
+			[
+				"rx",
+				"rxBuffer"
+			],
+			[
+				"ARR",
+				"ARROW_UP_KEY"
+			],
+			[
+				"hi",
+				"cmd_history"
+			],
+			[
+				"ARROW",
+				"ARROW_DOWN_KEY"
+			],
+			[
+				"contro",
+				"controller_task"
+			],
+			[
+				"thread",
+				"threadPriority"
+			],
+			[
+				"is",
+				"isReady"
+			],
+			[
+				"inclu",
+				"include_directories"
+			],
+			[
+				"IOE",
+				"IOExpanderDigitalOut"
+			],
+			[
+				"_i2c",
+				"_i2cAddress"
+			],
+			[
+				"motor",
+				"motors_en"
+			],
+			[
+				"reset_hall",
+				"reset_hall_counts"
+			],
+			[
+				"NUM_",
+				"NUM_ENCODERS"
+			],
+			[
+				"NUM",
+				"NUM_ENCODERS"
+			],
+			[
+				"rising",
+				"rising_edge"
+			],
+			[
+				"spi",
+				"spi_slave_do"
+			],
+			[
+				"count",
+				"countToggle"
+			],
+			[
+				"spi_sla",
+				"spi_slave_di"
+			],
+			[
+				"head",
+				"header_link"
+			],
+			[
+				"payload",
+				"payload_size"
+			],
+			[
+				"pay",
+				"payload_size"
+			],
+			[
+				"ack",
+				"ack_pck"
+			],
+			[
+				"retu",
+				"returnVal"
+			],
+			[
+				"SPI_SLA",
+				"SPI_SLAVE_CPOL"
+			],
+			[
+				"add_",
+				"add_dependencies"
+			],
+			[
+				"PROJECT",
+				"PROJECT_SOURCE_DIR"
+			],
+			[
+				"MBED_LI",
+				"MBED_LIB_RESULT"
+			],
+			[
+				"ADC",
+				"ADCSetup"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "Packages/Makefile/Make.sublime-build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Soccer - Real",
+					""
+				],
+				[
+					"Soccer - Real",
+					"Run"
+				],
+				[
+					"Soccer - Sim",
+					""
+				],
+				[
+					"Soccer - Sim",
+					"Run"
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					""
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					"Clean"
+				]
+			],
+			[
+				"Packages/Makefile/Make.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 96.0,
+		"last_filter": "install",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"clang",
+				"Clang Format: Format Selection"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"brow",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+	],
+	"file_history":
+	[
+		"/home/jonathan/Documents/dns-control/dns-control.py",
+		"/home/jonathan/Documents/dns-control/arp.py",
+		"/home/jonathan/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/jonathan/.config/sublime-text-3/Packages/SublimeAStyleFormatter/SublimeAStyleFormatter.sublime-settings",
+		"/home/jonathan/.config/sublime-text-3/Packages/Python PEP8 Autoformat/pep8_autoformat.sublime-settings",
+		"/home/jonathan/.config/sublime-text-3/Packages/User/pep8_autoformat.sublime-settings",
+		"/home/jonathan/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/jonathan/Documents/textingconnect/travis.yml",
+		"/home/jonathan/Documents/textingconnect/util/pre-install-script.sh",
+		"/usr/share/applications/defaults.list",
+		"/home/jonathan/Documents/textingconnect/util/gen-screenshots.sh",
+		"/home/jonathan/Documents/textingconnect/util/gen-mobile-views.js",
+		"/home/jonathan/Documents/textingconnect/util/cap.py",
+		"/home/jonathan/Documents/textingconnect/util/screenshot.py",
+		"/home/jonathan/Documents/textingconnect/util/srv-setup.sh",
+		"/home/jonathan/Documents/textingconnect/util/ubuntu-packages.txt",
+		"/home/jonathan/Documents/textingconnect/processes.json",
+		"/home/jonathan/Documents/piguard/logging.py",
+		"/home/jonathan/Documents/piguard/config.json",
+		"/home/jonathan/Documents/piguard/piguard.py",
+		"/home/jonathan/Desktop/liveview_log.json",
+		"/home/jonathan/Documents/piguard/logcolors.py",
+		"/home/jonathan/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/jonathan/Documents/piguard/test.py",
+		"/home/jonathan/Documents/piguard/run-app",
+		"/home/jonathan/Desktop/stream",
+		"/home/jonathan/Documents/school/ECE 6122/projects/FourierTransform2D/fft2d.cc",
+		"/home/jonathan/Documents/school/ECE 6122/projects/FourierTransform2D/plot-vals.py",
+		"/home/jonathan/Documents/school/ECE 6122/projects/FourierTransform2D/Makefile",
+		"/home/jonathan/Documents/school/ECE 6122/projects/FourierTransform2D/InputImage.cc",
+		"/home/jonathan/Documents/school/ECE 6122/projects/FourierTransform2D/MyAfter1d.txt",
+		"/home/jonathan/Documents/school/ECE 6122/projects/FourierTransform2D/after2d.txt",
+		"/home/jonathan/Documents/school/ECE 6122/projects/FourierTransform2D/MyAfter2d.txt",
+		"/home/jonathan/Documents/school/ECE 6122/projects/FourierTransform2D/MyAfter2d.png",
+		"/home/jonathan/Documents/school/ECE 6122/projects/FourierTransform2D/runLocal",
+		"/home/jonathan/Documents/school/ECE 6122/projects/FourierTransform2D/TURN_IN_STEPS",
+		"/home/jonathan/Documents/school/ECE 6122/projects/FourierTransform2D/runDFT.sh",
+		"/home/jonathan/Documents/school/ECE 6122/projects/FourierTransform2D/MyAfterInverse.txt",
+		"/home/jonathan/Documents/school/ECE 6122/projects/FourierTransform2D/after2dInverse.txt",
+		"/home/jonathan/Documents/school/ECE 6122/projects/FourierTransform2D/out-2d-Tower.txt",
+		"/home/jonathan/Documents/school/ECE 6122/projects/FourierTransform2D/Complex.cc",
+		"/home/jonathan/Documents/school/ECE 6122/projects/FourierTransform2D/Complex.h",
+		"/home/jonathan/Documents/school/ECE 6122/projects/FourierTransform2D/out-Tower.txt",
+		"/home/jonathan/Documents/school/ECE 6122/projects/FourierTransform2D/out-Tower-Small.txt",
+		"/home/jonathan/Documents/school/ECE 6122/projects/FourierTransform2D/Tower-Small.txt",
+		"/home/jonathan/Documents/school/ECE 6122/projects/FourierTransform2D/InputImage.h",
+		"/home/jonathan/Documents/school/ECE 6122/projects/FourierTransform2D/fft2d.aux",
+		"/home/jonathan/Documents/school/ECE 6122/projects/FourierTransform2D/fft2d.cout",
+		"/home/jonathan/Documents/robocup-software/firmware/mbed/mbed-rpc.cmake",
+		"/home/jonathan/Documents/robocup-software/firmware/mbed/arm_mbed.cmake",
+		"/home/jonathan/Documents/robocup-software/firmware/common2015/utils/rtp.hpp",
+		"/home/jonathan/Documents/robocup-software/firmware/robot2015/src-fpga/src/SPI_Slave.v",
+		"/home/jonathan/Documents/robocup-software/firmware/robot2015/src-fpga/src/SPI_Slave2.v",
+		"/home/jonathan/Documents/robocup-software/firmware/robot2015/src-ctrl/main.cpp",
+		"/home/jonathan/Documents/robocup-software/firmware/common2015/modules/Console/Console.cpp",
+		"/home/jonathan/Documents/robocup-software/firmware/robot2015/src-ctrl/modules/commands/commands.cpp",
+		"/home/jonathan/Documents/robocup-software/firmware/common2015/modules/CommModule/CommModule.hpp",
+		"/home/jonathan/Documents/robocup-software/firmware/common2015/modules/CommLink/CommLink.hpp",
+		"/home/jonathan/Documents/robocup-software/firmware/robot2015/src-ctrl/modules/CommTaskThread.cpp",
+		"/home/jonathan/Documents/robocup-software/firmware/common2015/modules/CommModule/CommModule.cpp",
+		"/home/jonathan/Documents/robocup-software/firmware/common2015/modules/CommLink/CommLink.cpp",
+		"/home/jonathan/Documents/robocup-software/firmware/common2015/utils/rtos-mgmt/helper-funcs.hpp",
+		"/home/jonathan/Documents/robocup-software/firmware/common2015/utils/rtos-mgmt/helper-funcs.cpp",
+		"/home/jonathan/Documents/robocup-software/firmware/robot2015/src-ctrl/config/robot.hpp",
+		"/home/jonathan/Documents/robocup-software/firmware/common2015/CMakeLists.txt",
+		"/home/jonathan/Documents/robocup-software/firmware/common2015/utils/rtp/rtp.hpp",
+		"/home/jonathan/Documents/robocup-software/firmware/common2015/drivers/cc1101/CC1101.hpp",
+		"/home/jonathan/Documents/robocup-software/firmware/robot2015/src-ctrl/CMakeLists.txt",
+		"/home/jonathan/Documents/robocup-software/firmware/common2015/utils/rtp/rtp.cpp",
+		"/home/jonathan/Documents/robocup-software/firmware/robot2015/src-ctrl/modules/commands/commands.hpp",
+		"/home/jonathan/Documents/robocup-software/firmware/robot2015/src-ctrl/config/robot-config.hpp",
+		"/home/jonathan/Documents/robocup-software/firmware/common2015/utils/RTP.hpp",
+		"/home/jonathan/Documents/robocup-software/firmware/common2015/utils/RTP.cpp",
+		"/home/jonathan/Documents/robocup-software/firmware/common2015/utils/watchdog.hpp",
+		"/home/jonathan/Documents/robocup-software/firmware/robot2015/src-ctrl/modules/motors/motors.cpp",
+		"/home/jonathan/Documents/robocup-software/third_party/mbed_lib_build_tools/libraries/tests/net/protocols/NTPClient_HelloWorld/NTPClient/NTPClient.cpp",
+		"/home/jonathan/Documents/robocup-software/firmware/common2015/modules/Console/Console.hpp",
+		"/home/jonathan/Documents/robocup-software/firmware/robot2015/src-ctrl/modules/ControllerTaskThread.cpp",
+		"/home/jonathan/Documents/robocup-software/third_party/mbed_lib_build_tools/libraries/tests/utest/general/general.cpp",
+		"/home/jonathan/Documents/robocup-software/firmware/robot2015/src-ctrl/drivers/rtos-i2c/i2cRtos_api.hpp",
+		"/home/jonathan/Documents/robocup-software/firmware/robot2015/src-ctrl/drivers/rtos-i2c/I2CDriver.cpp",
+		"/home/jonathan/Documents/robocup-software/firmware/robot2015/src-ctrl/drivers/rtos-i2c/I2CDriver.hpp",
+		"/home/jonathan/Documents/robocup-software/firmware/robot2015/src-ctrl/drivers/rtos-i2c/I2CMasterRtos.hpp",
+		"/home/jonathan/Documents/robocup-software/firmware/robot2015/src-ctrl/drivers/rtos-i2c/I2CSlaveRtos.hpp",
+		"/home/jonathan/Documents/robocup-software/firmware/robot2015/src-ctrl/drivers/rtos-i2c/i2cRtos_api.cpp",
+		"/home/jonathan/Documents/robocup-software/firmware/mbed/CMakeLists.txt",
+		"/home/jonathan/Documents/robocup-software/firmware/CMakeLists.txt",
+		"/home/jonathan/Documents/robocup-software/doc/RobotFirmware2015.md",
+		"/home/jonathan/Documents/robocup-software/doc/RobotFirmware.md",
+		"/home/jonathan/.config/sublime-text-3/Packages/DoxyDoxygen/Default (Linux).sublime-keymap",
+		"/home/jonathan/.config/sublime-text-3/Packages/User/Doxy.sublime-settings",
+		"/home/jonathan/Documents/robocup-software/util/mbed/mbed-prgm.py",
+		"/home/jonathan/Documents/robocup-software/firmware/robot2015/src-ctrl/modules/ConsoleCmds.py",
+		"/home/jonathan/Downloads/clang-format",
+		"/home/jonathan/Documents/robocup-software/firmware/mbed/modserial.cmake",
+		"/home/jonathan/Documents/robocup-software/firmware/mbed/moddma.cmake",
+		"/home/jonathan/Documents/robocup-software/firmware/robot2015/src-ctrl/drivers/ws2811/neostrip.cpp",
+		"/home/jonathan/Documents/robocup-software/firmware/robot2015/CMakeLists.txt",
+		"/home/jonathan/.config/sublime-text-3/Packages/CMakeEditor/README.md",
+		"/home/jonathan/Documents/robocup-software/firmware/robot2015/src-ctrl/drivers/ws2811/neocore.s",
+		"/home/jonathan/Documents/robocup-software/firmware/robot2015/src-ctrl/drivers/ws2811/neostrip.hpp",
+		"/home/jonathan/Documents/robocup-software/robocup.sublime-project",
+		"/home/jonathan/.config/sublime-text-3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/home/jonathan/.config/sublime-text-3/Packages/SublimeLinter/Default (Linux).sublime-keymap",
+		"/home/jonathan/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/jonathan/.config/sublime-text-3/Packages/User/JSON.sublime-settings",
+		"/home/jonathan/.config/sublime-text-3/Packages/Package Control/Package Control.sublime-settings",
+		"/home/jonathan/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/jonathan/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
+		"/home/jonathan/Documents/textingconnect/app.js",
+		"/home/jonathan/Documents/textingconnect/util/apache_proxy.conf",
+		"/home/jonathan/Documents/textingconnect/views/index.ejs",
+		"/home/jonathan/Documents/textingconnect/routes/index.js",
+		"/home/jonathan/Documents/robocup-software/util/ubuntu-setup",
+		"/home/jonathan/Documents/textingconnect/bin/www",
+		"/home/jonathan/Documents/textingconnect/util/tc_web.apache.conf",
+		"/home/jonathan/Documents/textingconnect/package.json",
+		"/home/jonathan/Documents/robocup-software/firmware/robot2015/src-ctrl/drivers/fpga/fpga.cpp",
+		"/home/jonathan/Documents/robocup-software/firmware/robot2015/hw-test/piezo-test.cpp",
+		"/home/jonathan/Documents/robocup-software/firmware/robot2015/src-ctrl/drivers/fpga/fpga.hpp",
+		"/home/jonathan/Documents/robocup-software/firmware/robot2015/src-ctrl/modules/TaskSignals.hpp",
+		"/home/jonathan/Desktop/octave-master/Demo/OctaveDemo/main.m",
+		"/home/jonathan/Downloads/MCP23017_LPC1768 (8).bin",
+		"/home/jonathan/Documents/robocup-software/firmware/common2015/modules/CommModule/CommPort.hpp",
+		"/home/jonathan/Documents/robocup-software/firmware/robot2015/hw-test/fpga-test.cpp",
+		"/home/jonathan/Documents/robocup-software/firmware/robot2015/src-ctrl/drivers/mcp23017/io-expander.hpp",
+		"/home/jonathan/Documents/robocup-software/firmware/common2015/drivers/software-spi/software-spi.hpp",
+		"/home/jonathan/Documents/robocup-software/firmware/common2015/drivers/software-spi/software-spi.cpp"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"/home/jonathan/Documents/robocup-software/firmware/robot2015",
+			"/home/jonathan/Documents/robocup-software/firmware/common2015",
+			"/home/jonathan/Documents/robocup-software",
+			"/home/jonathan/Documents/robocup-software/build/firmware",
+			"/home/jonathan/Documents/robocup-software/firmware",
+			"/home/jonathan/Documents/robocup-software/firmware/common2015",
+			"/home/jonathan/Documents/robocup-software",
+			"/home/jonathan/Documents/robocup-software/firmware",
+			"/home/jonathan/Documents/robocup-software/firmware/robot2015/cpu",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"bcast_mac",
+			"='',",
+			"broadcast",
+			"interface",
+			"device",
+			"ip_header",
+			"packet",
+			"source_ip",
+			"):\n",
+			"goog",
+			"IPPROTO_TCP",
+			"port",
+			"user",
+			"check",
+			"socket",
+			"space",
+			"gedit",
+			"sizeName",
+			"motionLevel_log",
+			"avg_delta_ts",
+			"last_motion_ts_logged",
+			"ts_utc",
+			"motionLevel",
+			"motionLevel_last",
+			"last_motion_ts",
+			"moving_average_array",
+			"timestamp",
+			"last_motion_ts",
+			"current_ts",
+			"ts",
+			"timesta",
+			"ts_ut",
+			"motionLevel",
+			"thre",
+			"math",
+			"x",
+			"array",
+			"json",
+			"*\n",
+			", ",
+			"timestamp",
+			"box",
+			"now",
+			"datet",
+			"time",
+			"datetime",
+			"timestamp",
+			"Start",
+			"image",
+			"tab",
+			"truncate",
+			"motionCounter",
+			"inverse",
+			"start",
+			"save",
+			"ROOT_RANK \\+",
+			"float",
+			"MyAfter2d",
+			"SaveImageData",
+			"136",
+			"requests",
+			"exit\\(0xFF\\);",
+			"exit\\(EXIT_FAILURE\\);",
+			"exit(EXIT_FAILURE);",
+			"Transform1D",
+			"N ",
+			"cpu_num_cols",
+			"cpu_start_col",
+			"wait",
+			"rows_per_cpu",
+			"rows_per",
+			"MPI_Recv",
+			"trans",
+			" 73 ",
+			" 56 ",
+			"98 ",
+			" 67 ",
+			" 11 ",
+			"11 ",
+			"11",
+			"132",
+			"cout",
+			"SaveImageData",
+			"size_t",
+			"USE_MPI",
+			"    \n",
+			"vector",
+			"\\.at",
+			"inputFN",
+			"arr",
+			"}\n",
+			"NULL",
+			"cmd_ls",
+			"ls ",
+			"cmd_disconnectInterface",
+			"rmdev",
+			"ACK_RESPONSE_CODE",
+			"COMM_PO",
+			"RTP_MAX_DATA_SZ",
+			"RTP_LINK_HDR_SZ",
+			"RTP_APP_HDR_SZ",
+			"RTP",
+			"rtp",
+			"RTP_Port",
+			"radio",
+			"cmd_rcp",
+			"NULL",
+			"set_time\\(",
+			"rxin",
+			"'^?';",
+			"waitSI",
+			"MBED_NET_PATH",
+			"py_li",
+			"wno",
+			"11",
+			"MBED_STARTUP",
+			"Serial",
+			"serial",
+			"macro",
+			"\\+f",
+			"+f",
+			"f[\\s]?\\}",
+			"f[\\s]?}",
+			"f ",
+			"neo_out",
+			"neo_write",
+			"objd",
+			"assembly"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"sublime_text",
+			"exit(EXIT_FAILURE);",
+			"exit(0xFF);",
+			"cpu_num_rows",
+			"cpu_start_row",
+			"cpu_num_rows",
+			"int",
+			"data_filename",
+			"MAX_DATA_SZ",
+			"LINK_HDR_SZ",
+			"APP_HDR_SZ",
+			"MBED_ETH_PATH",
+			"initB",
+			"LPC_TIM_TypeDef",
+			"timer_$1",
+			"timer",
+			"TIMER_",
+			"static inline",
+			"TIM_TypeDef",
+			"export $1",
+			"robot2015_test_ELF",
+			"srcFile",
+			"$1($2)",
+			"($1)",
+			"tx_vals_flag",
+			"rx_vals_flag",
+			"i",
+			"j",
+			"",
+			"dma",
+			"adc_buf",
+			"",
+			"adc_",
+			"INF1",
+			"",
+			"INF1",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.478307581497,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.astyle_error_message":
+	{
+		"height": 0.0
+	},
+	"output.exec":
+	{
+		"height": 142.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "rsa.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"instal",
+				"third_party/mbed_lib_build_tools/travis/install_dependencies.sh"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 33.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 260.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
