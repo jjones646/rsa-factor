@@ -17,11 +17,12 @@ RSA_Algorithm::RSA_Algorithm()
 {
   // get a random seed for the random number generator
   int dr = open("/dev/random", O_RDONLY);
-  if (dr < 0)
-    {
-      cout << "Can't open /dev/random, exiting" << endl;
-      exit(0);
-    }
+
+  if (dr < 0) {
+    cout << "Can't open /dev/random, exiting" << endl;
+    exit(0);
+  }
+
   unsigned long drValue;
   read(dr, (char*)&drValue, sizeof(drValue));
   //cout << "drValue " << drValue << endl;
@@ -29,8 +30,46 @@ RSA_Algorithm::RSA_Algorithm()
 // No need to init n, d, or e.
 }
 
-// Fill in the remainder of the RSA_Algorithm methods
+void RSA_Algorithm::GenerateRandomKeyPair(size_t sz)
+{
+  mpz_class p, q, phi_n, gcd;
 
+  // Select 2 random prime numbers that are of size sz bits
+  do {
+    p = rng.get_z_bits(sz);
+  } while (0 == mpz_probab_prime_p(p.get_mpz_t(), 100));
+
+  do {
+    q = rng.get_z_bits(sz);
+  } while (0 == mpz_probab_prime_p(q.get_mpz_t(), 100));
+
+  n = p * q;
+  phi_n = (p - 1) * (q - 1);
+
+  do {
+    do {
+      d = rng.get_z_bits(2 * sz);
+      // repeat until we have a value that is less than phi_n
+    } while (phi_n <= d);
+    //
+    mpz_gcd(gcd.get_mpz_t(), d.get_mpz_t(), phi_n.get_mpz_t());
+
+    // repeat until the GCD of d and phi_n is 1
+  } while (1 != gcd.get_ui());
+
+  // take the multiplicative inverse d % phi_n
+  mpz_invert(e.get_mpz_t(), d.get_mpz_t(), phi_n.get_mpz_t());
+}
+
+mpz_class RSA_Algorithm::Encrypt(mpz_class M)
+{
+
+}
+
+mpz_class RSA_Algorithm::Decrypt(mpz_class C)
+{
+
+}
 
 void RSA_Algorithm::PrintND()
 { // Do not change this, right format for the grading script
