@@ -17,7 +17,7 @@
 using namespace std;
 
 static const size_t min_bits = 32;
-static const size_t max_bits = 64;
+static const size_t max_bits = 1024;
 static const size_t keypairs_per_sz = 10;
 static const size_t num_msgs = 10;
 
