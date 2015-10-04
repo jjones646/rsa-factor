@@ -8,21 +8,20 @@
 
 using namespace std;
 
-const mpz_class factorial(const mpz_class& num)
-{
-  mpz_class n = num, f = 1;
-  while (n > 1)
-    f *= n--;
+static const size_t chars_per_msg = 6;
+static const mpz_class private_key = 4105243553;
 
-  return f;
-}
-
+// data structure for helping keep track of the params
 struct message_t {
   mpz_class p;
   mpz_class q;
+  mpz_class phi_p;
+  mpz_class phi_q;
+  mpz_class phi_n;
   mpz_class msg[10];
 };
 
+// our main program
 int main(int argc, char** argv)
 {
   // Arguments are as follows:
@@ -50,25 +49,21 @@ int main(int argc, char** argv)
   RSA.e = mpz_class(argv[2]);
   // The next 10 arguments contain the encrypted message
   for (size_t i = 0; i < argc - 3; ++i)
-    cipher.msg[i] = atol(argv[i + 3]);
+    cipher.msg[i] = mpz_class(argv[i + 3]);
 
-  //   The broken (computed) private key for the above is 4105243553
-
-  // First "break" the keys by factoring n and computing d
-  // RSA
-
-  // Let the starting point for checking the factors begin
-  // at the first off number of the square root of n
+  /*
+   *  First "break" the keys by factoring n and computing d.
+   *
+   *  Let the starting point for checking the factors begin
+   *  at the first off number of the square root of n
+   */
   mpz_class current_factor;
-  cout << "--  finding factors for " << RSA.n << endl;
+  clog << "--  finding factors for " << RSA.n << endl;
   mpz_sqrt(current_factor.get_mpz_t(), RSA.n.get_mpz_t());
 
   // Make sure we begin at an odd value
-  if ( mpz_fdiv_ui(current_factor.get_mpz_t(), 2) == 0 ) {
-    cout << "--  fixing starting value to be an odd number (" << current_factor << " => ";
+  if ( mpz_fdiv_ui(current_factor.get_mpz_t(), 2) == 0 )
     mpz_add_ui(current_factor.get_mpz_t(), current_factor.get_mpz_t(), 1);
-    cout << current_factor << ")" << endl;
-  }
 
   do {
     // decrement by 2 every time
@@ -77,40 +72,44 @@ int main(int argc, char** argv)
 
   // store our found factor
   cipher.p = current_factor;
-  cout << "--  found factor of " << cipher.p << "\t(for " << RSA.n << ")" << endl;
-
   // divide n by our found factor to find our other factor
   mpz_fdiv_q(cipher.q.get_mpz_t(), RSA.n.get_mpz_t(), cipher.p.get_mpz_t());
-  // mpz_fdiv_r(rem.get_mpz_t(), RSA.n.get_mpz_t(), cipher.p.get_mpz_t());
-
-  // cout << "  Quotient:\t" << quo << endl;
-  // cout << "  Remainder:\t" << rem << endl;
-  // cipher.q = quo;
-
 
   // double check that we found the right factors for d
   mpz_class check_val;
   mpz_mul(check_val.get_mpz_t(), cipher.p.get_mpz_t(), cipher.q.get_mpz_t());
   // if we actually did, show the value of real vs what our 2 factors compute out to be
-  if ( mpz_cmp(RSA.n.get_mpz_t(), check_val.get_mpz_t()) == 0 ) {
-    cout << cipher.p << " x " << cipher.q << " = " << RSA.n << "\t(actual)" << endl;
-    cout << cipher.p << " x " << cipher.q << " = " << check_val << "\t(computed)" << endl;
+  if ( mpz_cmp(RSA.n.get_mpz_t(), check_val.get_mpz_t()) == 0 )
+    clog << "--  " << cipher.p << " x " << cipher.q << " = " << check_val << "\t(computed)" << endl;
+
+  // now we compute the private key from our 2 found factors
+  // we do this by first finding phi_p & phi_q, then use those to find phi_n
+  mpz_sub_ui(cipher.phi_p.get_mpz_t(), cipher.p.get_mpz_t(), 1);
+  mpz_sub_ui(cipher.phi_q.get_mpz_t(), cipher.q.get_mpz_t(), 1);
+  // find phi_n with the above
+  mpz_mul(cipher.phi_n.get_mpz_t(), cipher.phi_p.get_mpz_t(), cipher.phi_q.get_mpz_t());
+  // we need to take the multiplicative inverse of d and phi_n to finally get the private key
+  mpz_invert(RSA.d.get_mpz_t(), RSA.e.get_mpz_t(), cipher.phi_n.get_mpz_t());
+
+  for (int i = 0; i < argc - 3; ++i) {
+    // Decrypt each set of 6 characters
+    mpz_class M = RSA.Decrypt(cipher.msg[i]);
+
+    //  use the get_ui() method in mpz_class to get the lower 48 bits of the message
+    unsigned long ul = M.get_ui() & 0xffffffffffff;
+    mpz_class MM(ul);
+
+    // Now print the 6 ascii values in variable ul.  As stated above the 6 characters
+    // are in the low order 48 bits of ui.
+    size_t ary_sz = mpz_sizeinbase(MM.get_mpz_t(), 62) + 2;
+    char decoded_msg[ary_sz];
+    memset(decoded_msg, 0, ary_sz);
+
+    mpz_get_str(decoded_msg, 62, MM.get_mpz_t());
+
+    for ( int j = (chars_per_msg - 1); j >= 0; --j )
+      cout << static_cast<char>((ul >> (8 * j)) & 0xff);
   }
-
-  // // Set rsa.d to the calculated private key d
-  // // rsa.d = mpz_class(// broken d value here)
-
-  // for (int i = 3; i < 13; ++i)
-  // { // Decrypt each set of 6 characters
-  //   mpz_class c(argv[i]);
-  //   mpz_class m = rsa.Decrypt(c);
-  //   //  use the get_ui() method in mpz_class to get the lower 48 bits of the m
-  //   unsigned long ul = m.get_ui();
-  //   // Now print the 6 ascii values in variable ul.  As stated above the 6 characters
-  //   // are in the low order 48 bits of ui.
-  // }
-  // cout << endl;
-
-  cout << "done" << endl;
+  cout << endl;
 }
 
