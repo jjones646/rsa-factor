@@ -299,6 +299,25 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "RSA.cc",
+			"settings":
+			{
+				"buffer_size": 2397,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "// Grad student portion of the RSA assignment\n// Fall 2015 ECE6122\n\n#include <iostream>\n\n#include \"RSA_Algorithm.h\"\n\nusing namespace std;\n\nint main(int argc, char** argv)\n{\n  // Arguments are as follows:\n  //argv[1] = n;\n  //argv[2] = e;  // n and e are the public key\n  //argv[3] = first 6 characters of encrypted message\n  //argv[4] = next 6 characters .. up to argv[12] are the lsat 6 characters\n  // The number of arguments will always be exacty 12, and each argument past the\n  // public key contain 6 ascii characters of the encrypted message.\n  // Each of the 32bit values in the argv[] array are right justified in the\n  // low order 48 bits of each unsigned long.  The upper 16 bits are always\n  // zero, which insures the each unsigned long is < n (64 bits) and therefore\n  // the RSA encryption will work.\n\n  // Below is an example of the BreakRSA and command line arguments:\n\n  // ./BreakRSA  2966772883822367927 2642027824495698257  817537070500556663 1328829247235192134 \n  // 1451942276855579785 2150743175814047358 72488230455769594 1989174916172335943 962538406513796755 \n  // 1069665942590443121 72678741742252898 1379869649761557209\n\n  //   The corect output from the above is:\n  //   HelloTest  riley CekwkABRIZFlqmWTanyXLogFgBUENvzwHpEHRCZIKRZ\n  //\n  //   The broken (computed) private key for the above is 4105243553\n\n\n\n  // Our one and only RSA_Algorithm object\n  RSA_Algorithm rsa;\n\n    mpz_class n(atol(argv[1]));\n  mpz_class f(1);\n  while (n > 1)\n    {\n      f *= n;\n      n -= 1;\n    }\n  cout << argv[1] << \" factorial is \" << f << endl;\n  \n  // First \"break\" the keys by factoring n and computing d\n  // Set the keys in the rsa object afer calculating d\n  rsa.n = mpz_class(argv[1]);\n  rsa.e = mpz_class(argv[2]);\n  // Set rsa.d to the calculated private key d\n  // rsa.d = mpz_class(// broken d value here) \n  for (int i = 3; i < 13; ++i)\n    { // Decrypt each set of 6 characters\n      mpz_class c(argv[i]);\n      mpz_class m = rsa.Decrypt(c);\n      //  use the get_ui() method in mpz_class to get the lower 48 bits of the m\n      unsigned long ul = m.get_ui();\n      // Now print the 6 ascii values in variable ul.  As stated above the 6 characters\n      // are in the low order 48 bits of ui.\n    }\n  cout << endl;\n}\n\n",
+			"file": "BreakRSA.cc",
+			"file_size": 2091,
+			"file_write_time": 130884090378636351,
+			"settings":
+			{
+				"buffer_size": 2250,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "Packages/Makefile/Make.sublime-build",
 	"build_system_choices":
@@ -371,6 +390,7 @@
 		"height": 139.0,
 		"history":
 		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
 			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
 		]
 	},
@@ -389,16 +409,17 @@
 	],
 	"file_history":
 	[
+		"/home/jonathan/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/jonathan/.config/sublime-text-3/Packages/User/C++.sublime-settings",
+		"/home/jonathan/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/home/jonathan/Documents/rsa/RSA.cc",
 		"/home/jonathan/Documents/rsa/RSA_Algorithm.cc",
 		"/home/jonathan/Documents/rsa/RSA_Algorithm.h",
 		"/home/jonathan/Documents/dns-control/dns-control.py",
 		"/home/jonathan/Documents/dns-control/arp.py",
-		"/home/jonathan/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/home/jonathan/.config/sublime-text-3/Packages/SublimeAStyleFormatter/SublimeAStyleFormatter.sublime-settings",
 		"/home/jonathan/.config/sublime-text-3/Packages/Python PEP8 Autoformat/pep8_autoformat.sublime-settings",
 		"/home/jonathan/.config/sublime-text-3/Packages/User/pep8_autoformat.sublime-settings",
-		"/home/jonathan/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
 		"/home/jonathan/Documents/textingconnect/travis.yml",
 		"/home/jonathan/Documents/textingconnect/util/pre-install-script.sh",
 		"/usr/share/applications/defaults.list",
@@ -515,12 +536,11 @@
 		"/home/jonathan/Documents/robocup-software/firmware/robot2015/src-ctrl/modules/TaskSignals.hpp",
 		"/home/jonathan/Desktop/octave-master/Demo/OctaveDemo/main.m",
 		"/home/jonathan/Downloads/MCP23017_LPC1768 (8).bin",
-		"/home/jonathan/Documents/robocup-software/firmware/common2015/modules/CommModule/CommPort.hpp",
-		"/home/jonathan/Documents/robocup-software/firmware/robot2015/hw-test/fpga-test.cpp"
+		"/home/jonathan/Documents/robocup-software/firmware/common2015/modules/CommModule/CommPort.hpp"
 	],
 	"find":
 	{
-		"height": 35.0
+		"height": 25.0
 	},
 	"find_in_files":
 	{
@@ -731,14 +751,75 @@
 			]
 		},
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "RSA.cc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2397,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1046,
+								1046
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 255.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "BreakRSA.cc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2250,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								385,
+								385
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 26.0
+		"height": 25.0
 	},
 	"input":
 	{
@@ -764,7 +845,7 @@
 		"cols":
 		[
 			0.0,
-			0.479670237361,
+			0.315212406036,
 			1.0
 		],
 		"rows":
@@ -790,7 +871,7 @@
 	"project": "rsa.sublime-project",
 	"replace":
 	{
-		"height": 48.0
+		"height": 46.0
 	},
 	"save_all_on_build": true,
 	"select_file":
