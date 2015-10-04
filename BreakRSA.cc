@@ -6,6 +6,10 @@
 
 #include "RSA_Algorithm.h"
 
+#define LOG_MSG \
+      if (debug_disabled == true) {} \
+      else clog
+
 using namespace std;
 
 static const size_t chars_per_msg = 6;
@@ -37,6 +41,9 @@ int main(int argc, char** argv)
   // zero, which insures the each unsigned long is < n (64 bits) and therefore
   // the RSA encryption will work.
 
+  // set to false to show debugging information
+  bool debug_disabled = true;
+
   // Our one and only RSA_Algorithm object
   RSA_Algorithm RSA;
   // data structure for more easily working with the message and its factors
@@ -58,7 +65,7 @@ int main(int argc, char** argv)
    *  at the first off number of the square root of n
    */
   mpz_class current_factor;
-  clog << "--  finding factors for " << RSA.n << endl;
+  LOG_MSG << "--  finding factors of " << RSA.n << endl;
   mpz_sqrt(current_factor.get_mpz_t(), RSA.n.get_mpz_t());
 
   // Make sure we begin at an odd value
@@ -79,8 +86,13 @@ int main(int argc, char** argv)
   mpz_class check_val;
   mpz_mul(check_val.get_mpz_t(), cipher.p.get_mpz_t(), cipher.q.get_mpz_t());
   // if we actually did, show the value of real vs what our 2 factors compute out to be
-  if ( mpz_cmp(RSA.n.get_mpz_t(), check_val.get_mpz_t()) == 0 )
-    clog << "--  " << cipher.p << " x " << cipher.q << " = " << check_val << "\t(computed)" << endl;
+  if ( mpz_cmp(RSA.n.get_mpz_t(), check_val.get_mpz_t()) == 0 ) {
+    LOG_MSG << "--  " << cipher.p << " x " << cipher.q << " = " << check_val << "\t(computed)" << endl;
+  }
+  else {
+    LOG_MSG << "--  unable to factor...quitting!" << endl;
+    exit(0);
+  }
 
   // now we compute the private key from our 2 found factors
   // we do this by first finding phi_p & phi_q, then use those to find phi_n
