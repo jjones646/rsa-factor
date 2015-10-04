@@ -11,7 +11,7 @@
 #include "RSA_Algorithm.h"
 
 #define LOG_MSG \
-      if (debug_disabled) {} \
+      if (debug_disabled == true) {} \
       else clog
 
 using namespace std;
@@ -39,7 +39,7 @@ int main(void)
     for (size_t i = 0; i < keypairs_per_sz; i++) {
       RSA.GenerateRandomKeyPair(sz);
       // show what our keypair values are
-      RSA.PrintNDE();
+      // RSA.PrintNDE();
 
       // keep track of our accumulated errors
       size_t accum_err = 0;
@@ -53,12 +53,12 @@ int main(void)
         } while ( RSA.CheckMsgUseable(Msg) == false );
 
         // show our message
-        RSA.PrintM(Msg);
+        // RSA.PrintM(Msg);
 
         // For eacm message encrypt it using the public key (n,e).
         Ciph = RSA.Encrypt(Msg);
         // show what the ciphertext message looks like
-        RSA.PrintC(Ciph);
+        // RSA.PrintC(Ciph);
         // After encryption, decrypt the ciphertext using the private
         // key (n,d) and verify it matches the original message.
         MsgCmpt = RSA.Decrypt(Ciph);
