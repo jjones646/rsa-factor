@@ -1,5 +1,4 @@
 // RSA Assignment for ECE4122/6122 Fall 2015
-
 #include <iostream>
 #include <fcntl.h>
 #include <stdlib.h>
