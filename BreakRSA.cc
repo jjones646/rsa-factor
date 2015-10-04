@@ -3,6 +3,7 @@
 // Fall 2015 ECE6122
 
 #include <iostream>
+#include <stdlib.h>
 
 #include "RSA_Algorithm.h"
 

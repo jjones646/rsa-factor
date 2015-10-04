@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"total",
+				"total_err"
+			],
+			[
+				"debu",
+				"debug_disabled"
+			],
+			[
+				"deb",
+				"debug_disabled"
+			],
+			[
+				"dec",
+				"decoded_msg"
+			],
+			[
+				"check",
+				"check_val"
+			],
+			[
+				"get_",
+				"get_mpz_t"
+			],
+			[
+				"message",
+				"message_t"
+			],
+			[
 				"ac",
 				"accum_err"
 			],
@@ -14,10 +42,6 @@
 			[
 				"get",
 				"get_mpz_t"
-			],
-			[
-				"get_",
-				"get_z_bits"
 			],
 			[
 				"sen",
@@ -299,25 +323,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "RSA.cc",
-			"settings":
-			{
-				"buffer_size": 2397,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "// Grad student portion of the RSA assignment\n// Fall 2015 ECE6122\n\n#include <iostream>\n\n#include \"RSA_Algorithm.h\"\n\nusing namespace std;\n\nint main(int argc, char** argv)\n{\n  // Arguments are as follows:\n  //argv[1] = n;\n  //argv[2] = e;  // n and e are the public key\n  //argv[3] = first 6 characters of encrypted message\n  //argv[4] = next 6 characters .. up to argv[12] are the lsat 6 characters\n  // The number of arguments will always be exacty 12, and each argument past the\n  // public key contain 6 ascii characters of the encrypted message.\n  // Each of the 32bit values in the argv[] array are right justified in the\n  // low order 48 bits of each unsigned long.  The upper 16 bits are always\n  // zero, which insures the each unsigned long is < n (64 bits) and therefore\n  // the RSA encryption will work.\n\n  // Below is an example of the BreakRSA and command line arguments:\n\n  // ./BreakRSA  2966772883822367927 2642027824495698257  817537070500556663 1328829247235192134 \n  // 1451942276855579785 2150743175814047358 72488230455769594 1989174916172335943 962538406513796755 \n  // 1069665942590443121 72678741742252898 1379869649761557209\n\n  //   The corect output from the above is:\n  //   HelloTest  riley CekwkABRIZFlqmWTanyXLogFgBUENvzwHpEHRCZIKRZ\n  //\n  //   The broken (computed) private key for the above is 4105243553\n\n\n\n  // Our one and only RSA_Algorithm object\n  RSA_Algorithm rsa;\n\n    mpz_class n(atol(argv[1]));\n  mpz_class f(1);\n  while (n > 1)\n    {\n      f *= n;\n      n -= 1;\n    }\n  cout << argv[1] << \" factorial is \" << f << endl;\n  \n  // First \"break\" the keys by factoring n and computing d\n  // Set the keys in the rsa object afer calculating d\n  rsa.n = mpz_class(argv[1]);\n  rsa.e = mpz_class(argv[2]);\n  // Set rsa.d to the calculated private key d\n  // rsa.d = mpz_class(// broken d value here) \n  for (int i = 3; i < 13; ++i)\n    { // Decrypt each set of 6 characters\n      mpz_class c(argv[i]);\n      mpz_class m = rsa.Decrypt(c);\n      //  use the get_ui() method in mpz_class to get the lower 48 bits of the m\n      unsigned long ul = m.get_ui();\n      // Now print the 6 ascii values in variable ul.  As stated above the 6 characters\n      // are in the low order 48 bits of ui.\n    }\n  cout << endl;\n}\n\n",
-			"file": "BreakRSA.cc",
-			"file_size": 2091,
-			"file_write_time": 130884090378636351,
-			"settings":
-			{
-				"buffer_size": 2250,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "Packages/Makefile/Make.sublime-build",
 	"build_system_choices":
@@ -358,10 +363,18 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 96.0,
-		"last_filter": "install",
+		"height": 222.0,
+		"last_filter": "make",
 		"selected_items":
 		[
+			[
+				"make",
+				"Build With: Make"
+			],
+			[
+				"run",
+				"Build With: C++ Single File - Run"
+			],
 			[
 				"install",
 				"Package Control: Install Package"
@@ -409,11 +422,18 @@
 	],
 	"file_history":
 	[
+		"/home/jonathan/Documents/rsa/BreakRSA.cc",
+		"/home/jonathan/Documents/rsa/RSA.cc",
+		"/home/jonathan/Documents/rsa/generated-msgs.sh",
+		"/home/jonathan/Documents/rsa/generated-msgs.txt",
+		"/home/jonathan/Documents/rsa/RSA_Algorithm.cc",
+		"/home/jonathan/Documents/rsa/run-break.sh",
+		"/home/jonathan/Documents/rsa/Makefile",
+		"/home/jonathan/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/jonathan/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
 		"/home/jonathan/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
 		"/home/jonathan/.config/sublime-text-3/Packages/User/C++.sublime-settings",
 		"/home/jonathan/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
-		"/home/jonathan/Documents/rsa/RSA.cc",
-		"/home/jonathan/Documents/rsa/RSA_Algorithm.cc",
 		"/home/jonathan/Documents/rsa/RSA_Algorithm.h",
 		"/home/jonathan/Documents/dns-control/dns-control.py",
 		"/home/jonathan/Documents/dns-control/arp.py",
@@ -435,7 +455,6 @@
 		"/home/jonathan/Documents/piguard/piguard.py",
 		"/home/jonathan/Desktop/liveview_log.json",
 		"/home/jonathan/Documents/piguard/logcolors.py",
-		"/home/jonathan/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
 		"/home/jonathan/Documents/piguard/test.py",
 		"/home/jonathan/Documents/piguard/run-app",
 		"/home/jonathan/Desktop/stream",
@@ -517,7 +536,6 @@
 		"/home/jonathan/Documents/robocup-software/robocup.sublime-project",
 		"/home/jonathan/.config/sublime-text-3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
 		"/home/jonathan/.config/sublime-text-3/Packages/SublimeLinter/Default (Linux).sublime-keymap",
-		"/home/jonathan/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
 		"/home/jonathan/.config/sublime-text-3/Packages/User/JSON.sublime-settings",
 		"/home/jonathan/.config/sublime-text-3/Packages/Package Control/Package Control.sublime-settings",
 		"/home/jonathan/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
@@ -531,16 +549,11 @@
 		"/home/jonathan/Documents/textingconnect/util/tc_web.apache.conf",
 		"/home/jonathan/Documents/textingconnect/package.json",
 		"/home/jonathan/Documents/robocup-software/firmware/robot2015/src-ctrl/drivers/fpga/fpga.cpp",
-		"/home/jonathan/Documents/robocup-software/firmware/robot2015/hw-test/piezo-test.cpp",
-		"/home/jonathan/Documents/robocup-software/firmware/robot2015/src-ctrl/drivers/fpga/fpga.hpp",
-		"/home/jonathan/Documents/robocup-software/firmware/robot2015/src-ctrl/modules/TaskSignals.hpp",
-		"/home/jonathan/Desktop/octave-master/Demo/OctaveDemo/main.m",
-		"/home/jonathan/Downloads/MCP23017_LPC1768 (8).bin",
-		"/home/jonathan/Documents/robocup-software/firmware/common2015/modules/CommModule/CommPort.hpp"
+		"/home/jonathan/Documents/robocup-software/firmware/robot2015/hw-test/piezo-test.cpp"
 	],
 	"find":
 	{
-		"height": 25.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -564,6 +577,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"ril",
+			"}\n",
+			"ctrl\\+alt\\+m",
+			"ctrl+alt",
 			"<<",
 			"sz",
 			"bcast_mac",
@@ -687,11 +704,7 @@
 			"macro",
 			"\\+f",
 			"+f",
-			"f[\\s]?\\}",
-			"f[\\s]?}",
-			"f ",
-			"neo_out",
-			"neo_write"
+			"f[\\s]?\\}"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -751,69 +764,8 @@
 			]
 		},
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "RSA.cc",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2397,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1046,
-								1046
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 255.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "BreakRSA.cc",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2250,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								385,
-								385
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -845,7 +797,7 @@
 		"cols":
 		[
 			0.0,
-			0.315212406036,
+			0.0301204819277,
 			1.0
 		],
 		"rows":
