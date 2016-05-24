@@ -4,13 +4,13 @@ LDFLAGS  = -lgmpxx -lgmp
 #LDFLAGS  = -L$(HOME)/Software/gmp-4.2.2/.libs -lgmp++
 CXX = g++
 
-RSA:	RSA.o RSA_Algorithm.o
+RSA: RSA.o RSA_Algorithm.o
 	$(CXX) -o RSA RSA.o RSA_Algorithm.o $(LDFLAGS)
 
-RSA.o:	RSA.cc
+RSA.o: RSA.cc
 	$(CXX) $(CXXFLAGS) RSA.cc
 
-BreakRSA:	BreakRSA.o RSA_Algorithm.o
+BreakRSA: BreakRSA.o RSA_Algorithm.o
 	$(CXX) -o BreakRSA BreakRSA.o RSA_Algorithm.o $(LDFLAGS)
 
 BreakRSA.o:	BreakRSA.cc
@@ -19,7 +19,7 @@ BreakRSA.o:	BreakRSA.cc
 # RSA_Algorithm:		RSA_Algorithm.o RSA.o
 # 	$(CXX) -o RSA_Algorithm RSA_Algorithm.o RSA.o $(LDFLAGS)
 
-RSA_Algorithm.o:	RSA_Algorithm.cc
+RSA_Algorithm.o: RSA_Algorithm.cc
 	$(CXX) $(CXXFLAGS) RSA_Algorithm.cc
 
 clean:

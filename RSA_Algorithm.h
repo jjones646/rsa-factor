@@ -1,8 +1,7 @@
+#pragma once
+
 // RSA Assignment for ECE4122/6122 Fall 2015
 // There should be no need to edit this file at all, but change if you feel the need.
-
-#ifndef __RSA_ALGORITHM_H__
-#define __RSA_ALGORITHM_H__
 
 #include <gmpxx.h>
 
@@ -54,6 +53,4 @@ public:
   // Public Random number generator
 public:
   gmp_randclass rng;
-
 };
-#endif

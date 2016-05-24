@@ -131,7 +131,3 @@ void RSA_Algorithm::PrintC(const mpz_class& C) const
 { // Do not change this, right format for the grading script
   cout << "C " << C << endl;
 }
-
-
-
-
