@@ -49,7 +49,7 @@ int main(int argc, char** argv)
   }
 
   // set to false to show debugging information
-  bool show_debug_msgs = false;
+  bool show_debug_msgs = true;
 
   // Our one and only RSA_Algorithm object
   RSA_Algorithm RSA;

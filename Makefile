@@ -18,5 +18,4 @@ RSA_Algorithm.o: RSA_Algorithm.cc
 	$(CXX) $(CXXFLAGS) RSA_Algorithm.cc
 
 clean:
-	rm -f *.o SA_Algorithm RSA
-
+	rm -f *.o RSA BreakRSA crack-msgs.sh

@@ -12,17 +12,17 @@
 #include "RSA_Algorithm.h"
 
 #define LOG_MSG \
-      if (show_debug_msgs == true) {} \
+      if (!show_debug_msgs) {} \
       else clog
 
 #define MSG_FILE \
-      if (show_debug_msgs == true) {} \
+      if (show_debug_msgs) {} \
       else msg_file
 
 using namespace std;
 
 static const size_t min_bits = 32;
-static const size_t max_bits = 1024;
+static const size_t max_bits = 32;
 static const size_t keypairs_per_sz = 10;
 static const size_t num_msgs = 10;
 
@@ -56,7 +56,7 @@ int main(void)
   // track the program's total error as it runs
   size_t total_err = 0;
   // if debug is enabled, only do the 32 bit keypairs
-  const size_t bits_max = !show_debug_msgs ? max_bits : 32;
+  const size_t bits_max = show_debug_msgs ? 32 : max_bits;
   for (size_t sz = min_bits; sz <= bits_max; sz = 2 * sz) {
     LOG_MSG << "--  computing " << keypairs_per_sz << " keypairs with " << sz << " bits" << endl;
     gmp_randclass rng(gmp_randinit_default);
@@ -70,23 +70,23 @@ int main(void)
       // generate a keypair!
       RSA.GenerateRandomKeyPair(sz);
       // show what our keypair values are
-      if ( !show_debug_msgs )
+      if ( show_debug_msgs )
         RSA.PrintNDE();
 
       // write to the bash script the first 2 arguments that we pass
       // into the BreakRSA program
       MSG_FILE << "# ===== Keypair " << i + 1 << " =====" << endl;
-      MSG_FILE << "./BreakRSA " << RSA.n << ' ' << RSA.e;
+      MSG_FILE << "./BreakRSA " << RSA.n << " " << RSA.e;
 
       // keep track of our accumulated errors
       size_t accum_err = 0;
       for ( size_t j = 0; j < num_msgs; j++ ) {
         mpz_class Msg, MsgCmpt, Ciph;
 
-        if ( !show_debug_msgs ) {
+        if ( show_debug_msgs ) {
           do {
             Msg = RSA.GetMsg(2 * sz);
-            // keep generating a message until we find one
+            // keep generating a 'message' until we find one
             // that will work
           } while ( RSA.CheckMsgUseable(Msg) == false );
         }
@@ -96,18 +96,18 @@ int main(void)
         }
 
         // show our message
-        if ( !show_debug_msgs )
+        if ( show_debug_msgs )
           RSA.PrintM(Msg);
 
         // For eacm message encrypt it using the public key (n,e).
         Ciph = RSA.Encrypt(Msg);
 
-        if ( !show_debug_msgs ) {
+        if ( show_debug_msgs ) {
           // show what the ciphertext message looks like
           RSA.PrintC(Ciph);
         } else {
           // write the ciphertext message as the next argument in the bash script
-          MSG_FILE << ' ' << Ciph;
+          MSG_FILE << " " << Ciph;
         }
 
         // After encryption, decrypt the ciphertext using the private
@@ -122,7 +122,7 @@ int main(void)
       // accumulate the total program's error
       total_err += accum_err;
       // write the error to the bash script & setup for our next line
-      MSG_FILE << endl << "# Total errors in keypair " << i + 1 << " generation detected:\t" << total_err << endl << endl;
+      MSG_FILE << endl << "# Total errors in keypair " << i + 1 << ":\t" << total_err << endl << endl;
 
       LOG_MSG << "\ttrial " << i + 1
               << " results: " << (accum_err == 0 ? "PASS" :  "FAIL") << " ("

@@ -1,4 +1,4 @@
 *.o
 RSA
 BreakRSA
-crack-msg.sh
+crack-msgs.sh
