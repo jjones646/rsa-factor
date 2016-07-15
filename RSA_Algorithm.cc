@@ -8,8 +8,6 @@
 
 using namespace std;
 
-// Implement the RSA_Algorithm methods here
-
 // Constructor
 RSA_Algorithm::RSA_Algorithm()
   : rng(gmp_randinit_default)

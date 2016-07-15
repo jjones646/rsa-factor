@@ -8,7 +8,7 @@
 #include "RSA_Algorithm.h"
 
 #define LOG_MSG \
-      if (debug_disabled == true) {} \
+      if (show_debug_msgs == false) {} \
       else clog
 
 using namespace std;
@@ -33,7 +33,8 @@ int main(int argc, char** argv)
   // argv[1] = n;
   // argv[2] = e;  // n and e are the public key
   // argv[3] = first 6 characters of encrypted message
-  // argv[4] = next 6 characters .. up to argv[12] are the lsat 6 characters
+  // argv[4] = next 6 characters .. up to argv[12] are the last 6 characters
+  // ...
   //
   // The number of arguments will always be exacty 12, and each argument past the
   // public key contain 6 ascii characters of the encrypted message.
@@ -42,8 +43,13 @@ int main(int argc, char** argv)
   // zero, which insures the each unsigned long is < n (64 bits) and therefore
   // the RSA encryption will work.
 
+  if (argc < 5) {
+      cout << "Usage: " << argv[0] << " <modulus>" << " <exponent>" << " <segment> <segment>..." << endl;
+      exit(1);
+  }
+
   // set to false to show debugging information
-  bool debug_disabled = true;
+  bool show_debug_msgs = false;
 
   // Our one and only RSA_Algorithm object
   RSA_Algorithm RSA;
@@ -125,4 +131,3 @@ int main(int argc, char** argv)
   }
   cout << endl;
 }
-

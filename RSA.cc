@@ -12,11 +12,11 @@
 #include "RSA_Algorithm.h"
 
 #define LOG_MSG \
-      if (debug_disabled == true) {} \
+      if (show_debug_msgs == true) {} \
       else clog
 
 #define MSG_FILE \
-      if (debug_disabled == true) {} \
+      if (show_debug_msgs == true) {} \
       else msg_file
 
 using namespace std;
@@ -26,7 +26,7 @@ static const size_t max_bits = 1024;
 static const size_t keypairs_per_sz = 10;
 static const size_t num_msgs = 10;
 
-// used if debug_disabled is set to false
+// used if show_debug_msgs is set to true
 static const std::string test_string = "Hello! This message will undergo RSA encryption & be broken.";
 std::ofstream msg_file;
 // this will pack 6 chars into a mpz_class type object for encryption
@@ -47,7 +47,7 @@ mpz_class getTestMsg(const size_t msg_id)
 int main(void)
 {
   // set to false to show debugging information
-  bool debug_disabled = true;
+  bool show_debug_msgs = false;
 
   // Instantiate the one and only RSA_Algorithm object
   RSA_Algorithm RSA;
@@ -56,21 +56,21 @@ int main(void)
   // track the program's total error as it runs
   size_t total_err = 0;
   // if debug is enabled, only do the 32 bit keypairs
-  const size_t bits_max = debug_disabled ? max_bits : 32;
+  const size_t bits_max = !show_debug_msgs ? max_bits : 32;
   for (size_t sz = min_bits; sz <= bits_max; sz = 2 * sz) {
     LOG_MSG << "--  computing " << keypairs_per_sz << " keypairs with " << sz << " bits" << endl;
     gmp_randclass rng(gmp_randinit_default);
 
     // write out a bash script that we can run directly if debugging is enabled
-    MSG_FILE.open("generated-msgs.sh");
-    MSG_FILE << "#!/bin/bash" << endl << endl;
+    MSG_FILE.open("crack-msgs.sh");
+    MSG_FILE << "#!/bin/sh" << endl << endl;
 
     // for each size choose 10 different key pairs
     for (size_t i = 0; i < keypairs_per_sz; i++) {
       // generate a keypair!
       RSA.GenerateRandomKeyPair(sz);
       // show what our keypair values are
-      if ( debug_disabled == true )
+      if ( !show_debug_msgs )
         RSA.PrintNDE();
 
       // write to the bash script the first 2 arguments that we pass
@@ -83,7 +83,7 @@ int main(void)
       for ( size_t j = 0; j < num_msgs; j++ ) {
         mpz_class Msg, MsgCmpt, Ciph;
 
-        if ( debug_disabled == true ) {
+        if ( !show_debug_msgs ) {
           do {
             Msg = RSA.GetMsg(2 * sz);
             // keep generating a message until we find one
@@ -96,13 +96,13 @@ int main(void)
         }
 
         // show our message
-        if ( debug_disabled == true )
+        if ( !show_debug_msgs )
           RSA.PrintM(Msg);
 
         // For eacm message encrypt it using the public key (n,e).
         Ciph = RSA.Encrypt(Msg);
 
-        if ( debug_disabled == true ) {
+        if ( !show_debug_msgs ) {
           // show what the ciphertext message looks like
           RSA.PrintC(Ciph);
         } else {
